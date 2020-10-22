@@ -18,6 +18,9 @@ if ! [ "$(id -u)" = "0" ]; then
     usage
 fi
 
+# constants
+GROUP="CSI230"
+
 # input flag processing
 while getopts ":f:" options;
 do
@@ -37,6 +40,14 @@ do
 done
 
 # Script logic
+if grep -q $GROUP /etc/group
+    then
+        echo "CSI230 group exists"
+    else
+        echo "Creating CSI230 group"
+        groupadd CSI230
+fi
+
 while read line
 do
     out=$(echo $line | cut -d "@" -f 1)
@@ -46,6 +57,10 @@ do
     #else
     #    echo "${line},no DNS record found"
     #fi
+    password=$(openssl rand -base64 20)
+    echo $password
+    epass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
+    useradd -s /bin/bash -G CSI230 -p $epass $out
     echo $out
 done < $f
 

@@ -25,3 +25,21 @@ Implement user creation (and deletion for sanity's sake), with the CSI230 group
 - assign a known test string password
 - put newly created user in CSI230 group
 - write a seperate simple script to delete all users in the CSI230 group
+
+### References
+
+- https://www.cyberciti.biz/tips/howto-write-shell-script-to-add-user.html
+- https://www.commandlinux.com/man-page/man8/deluser.8.html
+- https://raymii.org/s/snippets/OpenSSL_Password_Generator.html
+- http://linuxcommand.org/lc3_man_pages/grep1.html
+
+## 3
+
+All features implemented and also implemented random password generation. Figuring out how to set the password was a bit of a roadblock but I think I arrived at a semi-decent method. Probably still not really secure but better than nothing, at least as far as I can tell.
+
+### Goal
+
+Password updating:
+
+- make sure the user has to update their password on login
+- if the user already exists, change their password
