@@ -20,6 +20,7 @@ fi
 
 # constants
 GROUP="CSI230"
+RIGHT_NOW=$(date)
 
 # input flag processing
 while getopts ":f:" options;
@@ -50,18 +51,19 @@ fi
 
 while read line
 do
-    out=$(echo $line | cut -d "@" -f 1)
-    #if [ $? -eq 0 ]; then
-    #    ip=$(echo $out | cut -d " " -f 4)
-    #    echo $line,$ip
-    #else
-    #    echo "${line},no DNS record found"
-    #fi
+    username=$(echo $line | cut -d "@" -f 1)
     password=$(openssl rand -base64 20)
     echo $password
     epass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
-    useradd -s /bin/bash -G CSI230 -p $epass $out
-    echo $out
+    useradd -s /bin/bash -G CSI230 -p $epass $username
+    if [ $? -eq 9 ]; then
+        echo "$username:$epass" | chpasswd -e
+        echo "$username password updated"
+    else
+        echo "$username account created"
+    fi
+    passwd -q --expire $username
+    
 done < $f
 
 exit 0
