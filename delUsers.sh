@@ -3,7 +3,7 @@
 # file delUser.sh
 # brief Deletes all users with usernames in the given file
 # author chronowski
-# date 15/10/2020
+# date 22/10/2020
 
 usage()
 {
