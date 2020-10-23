@@ -67,6 +67,8 @@ Email time:
 - https://mailutils.org/
 - https://linuxhint.com/bash_script_send_email/?fbclid=IwAR388v2Zi72ERYuJf66L5F5iBjW46d41CpmtyIMb6NmaXMSdvvCyRqhCPR4
 
-# 5/Review
+## 5/Review
 
 It took a bit to actually get it to send an email, and the Google credential side was a bit of a pain. Honestly the hardest part was actually figuring out the command syntax since I am either blind or an explanation of it in the documentation for sSMTP or mailutils doesn't exist. I don't think I fully understand exactly how it accesses the email account to send it but it works. I configured it so that the credentials that it uses to send the email are stored in '/etc/ssmtp/ssmtp.config' as I couldn't figure out how to have them entered at runtime. Another thing that gave me a bit of trouble was getting the proper message body due to me continually mixing up and messing up my single and double quotes. Other than those impediments all of the functionality is implemented and running properly.
+
+Through the course of the demo I also discovered that I was unable to ssh in using the fresh accounts roughly two-thirds of the time, and was unable to find the cause of this. I explored the ssh config settings and the group settings, but nothing I messed with let them through so it's going to have to be a project for a later time.
