@@ -57,8 +57,7 @@ fi
 while read line
 do
     username=$(echo $line | cut -d "@" -f 1)
-    password=$(openssl rand -base64 20)
-    echo $password
+    password=$(openssl rand -hex 20)
     epass=$(perl -e 'print crypt($ARGV[0], "password")' $password)
     useradd -s /bin/bash -G CSI230 -p $epass $username
 
