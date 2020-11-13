@@ -13,6 +13,7 @@
 #include <pwd.h>
 #include <libgen.h>
 #include "logger.h"
+#include "earth_utils.h"
 
 
 int main(int argc, char* argv[]) 
@@ -57,10 +58,32 @@ int main(int argc, char* argv[])
             if(flog)
             {
                 std::string programName = basename(argv[0]);
-                std::string msg = "kmlfile: " + kmlValue + " Log: " + logValue;
+                std::string msg = "The kmlfile is: " + kmlValue + " and log is: " + logValue;
                 log(msg, programName, flog);
                 optErr = false;
                 flog.close();
+
+                //parse csv
+                std::ifstream inFile;
+                inFile.open(kmlValue);
+                if(inFile)
+                {
+                    int recordCount = processCSV(inFile, kmlValue + ".kml");
+                    inFile.close();
+                    if(recordCount)
+                    {
+                        std::cout << recordCount << " records processed\n";
+                        optErr = false;
+                    }
+                    else
+                    {
+                        optErr = true;
+                    }
+                }             
+                else
+                {
+                    optErr = true;
+                }
             }
             else
             {
