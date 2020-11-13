@@ -24,6 +24,6 @@ const std::string PLACEMARK_FOOT = "</coordinates></Point>\n</Placemark>";
 int processCSV(std::ifstream& inFile, std::string kmlFileName);
 
 // Writes a placemark record into an already existing kml file
-void writePlacemark(std::ofstream&kmlFile, std::string name, std::string latitude, std::string longitude);
+void writePlacemark(std::ofstream&kmlFile, std::string name, std::string coord);
 
 #endif
