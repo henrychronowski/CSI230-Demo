@@ -40,7 +40,7 @@ int processCSV(std::ifstream& inFile, std::string kmlFileName)
             getline(s_stream, strLong, ',');
             //std::cout << strCountry << "~" << strCapital << "~" << strLat << "~" << strLong << std::endl;
             // Write placemark to kml file
-            kmlOut << PLACEMARK_HEAD << strCapital << ", " << strCountry << PLACEMARK_MID << strLat << "," << strLong << PLACEMARK_FOOT;
+            kmlOut << PLACEMARK_HEAD << strCapital << ", " << strCountry << PLACEMARK_MID << strLong << "," << strLat << PLACEMARK_FOOT;
             recordCount++;
         }
         //std::cout << strLine << std::endl;
