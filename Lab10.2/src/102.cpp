@@ -1,7 +1,7 @@
 #include <iostream>
 #include <pwd.h>
-#include <unistd.h>
 #include <libgen.h>
+#include "logger.h"
 
 
 int main(int argc, char* argv[]) 
@@ -41,7 +41,21 @@ int main(int argc, char* argv[])
         }
         else
         {
-            optErr = false;
+            std::ofstream flog;
+            flog.open(logValue, std::ios_base::app);
+            if(flog)
+            {
+                std::string programName = basename(argv[0]);
+                std::string msg = "kmlfile: " + kmlValue + " Log: " + logValue;
+                log(msg, programName, flog);
+                optErr = false;
+                flog.close();
+            }
+            else
+            {
+                std::cout << "couldn't open " << logValue << std::endl;
+                optErr = true;
+            }
         }
         
     }
@@ -55,8 +69,11 @@ int main(int argc, char* argv[])
     {
         return EXIT_FAILURE;
     }
-    std::cout << "KML flag is:" << kmlFlag << " Log flag is: " << logFlag << std::endl;
-    std::cout << "Count: " << kmlValue << " Log: " << logValue << std::endl;
+
+    
+
+    std::cout << "kml flag is:" << kmlFlag << " Log flag is: " << logFlag << std::endl;
+    std::cout << "kmlfile: " << kmlValue << " Log: " << logValue << std::endl;
     std::cout << "optErr:" << optErr << std::endl;
 
     return EXIT_SUCCESS;
