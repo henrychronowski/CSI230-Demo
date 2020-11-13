@@ -12,3 +12,4 @@ Fri Nov 13 00:17:05 2020 pop-os main[9616]: The kmlfile is: concap.csv and log i
 Fri Nov 13 00:18:20 2020 pop-os main[9677]: The kmlfile is: concap.csv and log is: mylogfile.txt
 Fri Nov 13 00:20:36 2020 pop-os main[9850]: The kmlfile is: concap.csv and log is: mylogfile.txt
 Fri Nov 13 00:21:31 2020 pop-os main[9948]: The kmlfile is: concap.csv and log is: mylogfile.txt
+Fri Nov 13 00:26:59 2020 pop-os main[10104]: The kmlfile is: concap.csv and log is: mylogfile.txt

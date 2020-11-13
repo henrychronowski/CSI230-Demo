@@ -13,12 +13,12 @@
 #include<string>
 #include<fstream>
 
-const std::string KML_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n<Document>";
+const std::string KML_HEADER = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<kml xmlns=\"http://www.opengis.net/kml/2.2\">\n<Document>\n";
 const std::string KML_FOOTER = "</Document>\n</kml>\n";
 
 const std::string PLACEMARK_HEAD = "<Placemark>\n<name>";
 const std::string PLACEMARK_MID = "</name>\n<Point><coordinates>";
-const std::string PLACEMARK_FOOT = "</coordinates></Point>\n";
+const std::string PLACEMARK_FOOT = "</coordinates></Point>\n</Placemark>";
 
 // Takes in a csv file and outputs the contents to a kml formatted file
 int processCSV(std::ifstream& inFile, std::string kmlFileName);
