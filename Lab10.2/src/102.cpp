@@ -1,3 +1,14 @@
+/**
+ * @file 102.cpp
+ * @brief Driver code for lab 10.2
+ * 
+ * @author Henry Chronowski
+ * @assignment Lab 10.2
+ * @date 12/11/2020
+ * @credits Lecture 10.2
+ * 
+ **/
+
 #include <iostream>
 #include <pwd.h>
 #include <libgen.h>

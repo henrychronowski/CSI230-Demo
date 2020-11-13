@@ -1,3 +1,4 @@
 Thu Nov 12 23:22:28 2020 pop-os main[7471]: kmlfile: red Log: mylogfile.txt
 Thu Nov 12 23:23:12 2020 pop-os main[7560]: kmlfile: red Log: mylogfile.txt
 Thu Nov 12 23:23:27 2020 pop-os main[7578]: kmlfile: red Log: mylogfile.txt
+Thu Nov 12 23:24:56 2020 pop-os main[7632]: kmlfile: red Log: mylogfile.txt
