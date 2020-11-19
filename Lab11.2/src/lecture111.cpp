@@ -5,7 +5,9 @@
  * @author Henry Chronowski
  * @assignment Lab 10.2
  * @date 12/11/2020
- * @credits Lecture 10.2
+ * @credits Lecture 11.2
+ * https://www.boost.org/doc/libs/1_71_0/doc/html/chrono.html
+ * https://www.boost.org/doc/libs/1_71_0/doc/html/program_options.html
  * 
  **/
 
@@ -41,6 +43,9 @@ int main(int argc, const char *argv[])
       std::cout << "Age: " << vm["age"].as<int>() << '\n';
     else if (vm.count("pi"))
       std::cout << "Pi: " << vm["pi"].as<float>() << '\n';
+
+    boost::chrono::duration<double> sec = boost::chrono::system_clock::now() - start;
+    std::cout << sec << std::endl;
   }
   catch (const error &ex)
   {
