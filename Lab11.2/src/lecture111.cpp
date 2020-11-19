@@ -9,19 +9,41 @@
  * 
  **/
 
-#include <boost/lambda/lambda.hpp>
-#include <iterator>
+#include <boost/program_options.hpp>
+#include <boost/chrono/include.hpp>
 #include <iostream>
-#include <algorithm>
 
-int main()
+using namespace boost::program_options;
+
+void on_age(int age)
 {
-    using namespace boost::lambda;
-    typedef std::istream_iterator<int> in;
+  std::cout << "On age: " << age << '\n';
+}
 
-    std::for_each(
-        in(std::cin), in(), std::cout << (_1 * 3) << " ");
+int main(int argc, const char *argv[])
+{
+  try
+  {
+      boost::chrono::system_clock::time_point start = boost::chrono::system_clock::now();
+    options_description desc{"Options"};
+    desc.add_options()
+      ("help,h", "Help screen")
+      ("pi", value<float>()->default_value(3.14f), "Pi")
+      ("age", value<int>()->notifier(on_age), "Age");
 
+    variables_map vm;
+    store(parse_command_line(argc, argv, desc), vm);
+    notify(vm);
 
-    return EXIT_SUCCESS;
+    if (vm.count("help"))
+      std::cout << desc << '\n';
+    else if (vm.count("age"))
+      std::cout << "Age: " << vm["age"].as<int>() << '\n';
+    else if (vm.count("pi"))
+      std::cout << "Pi: " << vm["pi"].as<float>() << '\n';
+  }
+  catch (const error &ex)
+  {
+    std::cerr << ex.what() << '\n';
+  }
 }
