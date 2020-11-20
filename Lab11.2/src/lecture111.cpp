@@ -20,7 +20,7 @@
 using namespace boost::program_options;
 
 const double NUMBER = 289.7773;
-const double TO_SECONDS = 0.00000001;
+const double TO_SECONDS = 0.000000001;
 
 int main(int argc, const char *argv[])
 {
