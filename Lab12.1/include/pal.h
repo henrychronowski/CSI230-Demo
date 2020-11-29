@@ -11,5 +11,5 @@
 
 #ifndef PAL_H
 #define PAL_H
-bool isPalindrom(char* word);
+bool isPalindrome(char* word);
 #endif
