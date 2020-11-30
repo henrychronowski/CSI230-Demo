@@ -35,4 +35,6 @@ install:
 	cp $(LIB)/lib$(SO_NAME).so $(LIB_INSTALL_DIR)/
 	cp $(BIN)/$(EXECUTABLE) $(BIN_INSTALL_DIR)/
 
-	
+remove:
+	rm $(LIB_INSTALL_DIR)/lib$(SO_NAME).so
+	rm $(BIN_INSTALL_DIR)/$(EXECUTABLE)
