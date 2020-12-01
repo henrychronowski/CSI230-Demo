@@ -12,7 +12,8 @@
  **/
 
 
-#include "pal.h"
+//#include "pal.h"
+#include "letterCheck.h"
 #include <iostream>
  
 using namespace std;
@@ -22,16 +23,18 @@ int main()
     while (1)
     {
         char buffer[64] = {0};
-        cin >> buffer;
+        cin.getline(buffer, 63);
  
-        if (isPalindrome(buffer))
-        {
-            cout << "Word is a palindrome" << endl;
-        }
-        else
-        {
-            cout << "Word is not a palindrome" << endl;
-        }
+        // if (isPalindrome(buffer))
+        // {
+        //     cout << "Word is a palindrome" << endl;
+        // }
+        // else
+        // {
+        //     cout << "Word is not a palindrome" << endl;
+        // }
+
+        cout << "Char " << buffer[0] << " occurs " << checkLetter(buffer) << " times.\n";
     }
  
     return 0;

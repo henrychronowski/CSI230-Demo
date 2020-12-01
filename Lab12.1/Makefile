@@ -9,7 +9,7 @@ LIB := lib
 LIBRARIES   := 
 EXECUTABLE  := pal_driver
 
-SO_NAME := pal
+SO_NAME := letterCheck
 
 LIB_INSTALL_DIR := /usr/lib/x86_64-linux-gnu
 BIN_INSTALL_DIR := /usr/local/bin

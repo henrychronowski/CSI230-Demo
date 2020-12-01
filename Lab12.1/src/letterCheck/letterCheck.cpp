@@ -8,7 +8,7 @@
  * @credits Lecture 12.1
  **/
 
-#include "pal.h"
+#include "letterCheck.h"
 #include <string.h>
  
 /** @brief Returns the number of occurences of the first character in the following string
@@ -17,11 +17,11 @@ int checkLetter(char* word)
 {
     int ret = 0;
  
-    char *target = &word[0];
+    char *target = word;
     int len = strlen(word);
     char *check = target + 1;
  
-    for (size_t i = 0 ; i < len ; ++i, ++check)
+    for (int i = 0 ; i < len ; ++i, ++check)
     {
         if (*check == *target)
         {
